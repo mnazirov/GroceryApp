@@ -1,5 +1,5 @@
 ## Description
-The most easy way to organise your shopping lists and saving data to Realm
+The easiest way to organize your shopping lists and saving data to Realm
 
 ## Tasks List
 - [X] Install Realm
