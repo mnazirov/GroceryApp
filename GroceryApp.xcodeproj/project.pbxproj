@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,8 @@
 		CE0F66BF261DFD3F000917CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F66BD261DFD3F000917CF /* LaunchScreen.storyboard */; };
 		CE0F66D0261E02C0000917CF /* ShopListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F66CF261E02C0000917CF /* ShopListTableViewController.swift */; };
 		CE0F66D3261E0B29000917CF /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F66D2261E0B29000917CF /* ProductsTableViewController.swift */; };
+		CE71CAD5261E48E400ED2598 /* Product.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71CAD4261E48E400ED2598 /* Product.swift */; };
+		CE71CAD8261E490800ED2598 /* ProductList.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE71CAD7261E490800ED2598 /* ProductList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +32,8 @@
 		CE0F66C0261DFD3F000917CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CE0F66CF261E02C0000917CF /* ShopListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListTableViewController.swift; sourceTree = "<group>"; };
 		CE0F66D2261E0B29000917CF /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
+		CE71CAD4261E48E400ED2598 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
+		CE71CAD7261E490800ED2598 /* ProductList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,7 +62,6 @@
 				9D6AF37B4DC46FA972A1B17C /* Pods-GroceryApp.debug.xcconfig */,
 				1E69B179503F8C8F407FAD5C /* Pods-GroceryApp.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -115,6 +118,8 @@
 		CE0F66CB261DFDD8000917CF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				CE71CAD4261E48E400ED2598 /* Product.swift */,
+				CE71CAD7261E490800ED2598 /* ProductList.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -251,6 +256,8 @@
 			files = (
 				CE0F66B3261DFD3B000917CF /* AppDelegate.swift in Sources */,
 				CE0F66D3261E0B29000917CF /* ProductsTableViewController.swift in Sources */,
+				CE71CAD5261E48E400ED2598 /* Product.swift in Sources */,
+				CE71CAD8261E490800ED2598 /* ProductList.swift in Sources */,
 				CE0F66B5261DFD3B000917CF /* SceneDelegate.swift in Sources */,
 				CE0F66D0261E02C0000917CF /* ShopListTableViewController.swift in Sources */,
 			);
