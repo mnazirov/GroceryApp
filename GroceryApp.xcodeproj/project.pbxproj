@@ -9,21 +9,23 @@
 /* Begin PBXBuildFile section */
 		CE0F66B3261DFD3B000917CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F66B2261DFD3B000917CF /* AppDelegate.swift */; };
 		CE0F66B5261DFD3B000917CF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F66B4261DFD3B000917CF /* SceneDelegate.swift */; };
-		CE0F66B7261DFD3B000917CF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F66B6261DFD3B000917CF /* ViewController.swift */; };
 		CE0F66BA261DFD3B000917CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F66B8261DFD3B000917CF /* Main.storyboard */; };
 		CE0F66BC261DFD3F000917CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CE0F66BB261DFD3F000917CF /* Assets.xcassets */; };
 		CE0F66BF261DFD3F000917CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CE0F66BD261DFD3F000917CF /* LaunchScreen.storyboard */; };
+		CE0F66D0261E02C0000917CF /* ShopListTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F66CF261E02C0000917CF /* ShopListTableViewController.swift */; };
+		CE0F66D3261E0B29000917CF /* ProductsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE0F66D2261E0B29000917CF /* ProductsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		CE0F66AF261DFD3B000917CF /* GroceryApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GroceryApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CE0F66B2261DFD3B000917CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CE0F66B4261DFD3B000917CF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		CE0F66B6261DFD3B000917CF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		CE0F66B9261DFD3B000917CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		CE0F66BB261DFD3F000917CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		CE0F66BE261DFD3F000917CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		CE0F66C0261DFD3F000917CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CE0F66CF261E02C0000917CF /* ShopListTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopListTableViewController.swift; sourceTree = "<group>"; };
+		CE0F66D2261E0B29000917CF /* ProductsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,15 +58,56 @@
 		CE0F66B1261DFD3B000917CF /* GroceryApp */ = {
 			isa = PBXGroup;
 			children = (
-				CE0F66B2261DFD3B000917CF /* AppDelegate.swift */,
-				CE0F66B4261DFD3B000917CF /* SceneDelegate.swift */,
-				CE0F66B6261DFD3B000917CF /* ViewController.swift */,
-				CE0F66B8261DFD3B000917CF /* Main.storyboard */,
+				CE0F66CD261DFDED000917CF /* ViewControllers */,
+				CE0F66CC261DFDDF000917CF /* Services */,
+				CE0F66CB261DFDD8000917CF /* Model */,
+				CE0F66C7261DFD92000917CF /* SupportFiles */,
+				CE0F66C9261DFDBF000917CF /* StoryBoards */,
 				CE0F66BB261DFD3F000917CF /* Assets.xcassets */,
-				CE0F66BD261DFD3F000917CF /* LaunchScreen.storyboard */,
-				CE0F66C0261DFD3F000917CF /* Info.plist */,
 			);
 			path = GroceryApp;
+			sourceTree = "<group>";
+		};
+		CE0F66C7261DFD92000917CF /* SupportFiles */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F66B2261DFD3B000917CF /* AppDelegate.swift */,
+				CE0F66B4261DFD3B000917CF /* SceneDelegate.swift */,
+				CE0F66C0261DFD3F000917CF /* Info.plist */,
+			);
+			path = SupportFiles;
+			sourceTree = "<group>";
+		};
+		CE0F66C9261DFDBF000917CF /* StoryBoards */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F66B8261DFD3B000917CF /* Main.storyboard */,
+				CE0F66BD261DFD3F000917CF /* LaunchScreen.storyboard */,
+			);
+			path = StoryBoards;
+			sourceTree = "<group>";
+		};
+		CE0F66CB261DFDD8000917CF /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE0F66CC261DFDDF000917CF /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE0F66CD261DFDED000917CF /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				CE0F66CF261E02C0000917CF /* ShopListTableViewController.swift */,
+				CE0F66D2261E0B29000917CF /* ProductsTableViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -137,9 +180,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CE0F66B7261DFD3B000917CF /* ViewController.swift in Sources */,
 				CE0F66B3261DFD3B000917CF /* AppDelegate.swift in Sources */,
+				CE0F66D3261E0B29000917CF /* ProductsTableViewController.swift in Sources */,
 				CE0F66B5261DFD3B000917CF /* SceneDelegate.swift in Sources */,
+				CE0F66D0261E02C0000917CF /* ShopListTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -296,7 +340,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = m.nazirov.GroceryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -315,7 +359,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = m.nazirov.GroceryApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
