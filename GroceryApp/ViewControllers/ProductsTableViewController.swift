@@ -32,7 +32,7 @@ class ProductsTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        section == 0 ? "Need to buy" : "Purchased"
+        section == 0 ? "You need to buy" : "You bought"
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -42,7 +42,7 @@ class ProductsTableViewController: UITableViewController {
         var content = cell.defaultContentConfiguration()
         
         content.text = product.name
-        content.secondaryText = product.descr
+        content.secondaryText = "\(product.numberOfItems)"
         
         cell.contentConfiguration = content
 
