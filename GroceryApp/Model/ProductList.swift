@@ -9,6 +9,6 @@ import RealmSwift
 
 class ProductList: Object {
     @objc dynamic var name = ""
-    @objc dynamic var count = Date()
-    let products = List<Product>()
+    @objc dynamic var date = Date()
+    var products = List<Product>()
 }
