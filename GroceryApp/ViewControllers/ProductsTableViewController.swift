@@ -22,7 +22,6 @@ class ProductsTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-    
     override func numberOfSections(in tableView: UITableView) -> Int {
         2
     }
@@ -47,5 +46,30 @@ class ProductsTableViewController: UITableViewController {
         cell.contentConfiguration = content
 
         return cell
+    }
+    
+    // MARK: - Private Methods
+    private func showAlert(product: Product? = nil, completion: (() -> Void)? = nil) {
+        let title = product != nil ? "Edit product" : "Add product"
+        let message = product != nil ? "Please edit new values" : "Please insert new values"
+        
+        let alert = AlertController(title: title,
+                                    message: message,
+                                    preferredStyle: .alert)
+        
+        alert.actionForProduct(product: product) { (newProductName, newNumberOfItems) in
+            if let product = product, let completion = completion {
+                StorageManager.shared.edit(product: product,
+                                           newProductName: newProductName,
+                                           newNumberOfItems: newNumberOfItems)
+                completion()
+            } else {
+                StorageManager.shared.save(productList: self.productList,
+                                           newProductName: newProductName,
+                                           newNumberOfItems: newNumberOfItems)
+            }
+        }
+        
+        present(alert, animated: true)
     }
 }

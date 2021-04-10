@@ -19,7 +19,6 @@ class ShopListTableViewController: UITableViewController {
     }
 
     // MARK: - Table view data source
-
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         productLists.count
     }
@@ -45,6 +44,7 @@ class ShopListTableViewController: UITableViewController {
         productsVC.productList = productList
     }
     
+    // MARK: - IBAction
     @IBAction func addList(_ sender: UIBarButtonItem) {
         showAlert()
     }
@@ -53,17 +53,24 @@ class ShopListTableViewController: UITableViewController {
     }
     
     // MARK: - Private Methods
-    private func showAlert(task: ProductList? = nil, completion: (() -> Void)? = nil) {
-        let title = task != nil ? "Edit list" : "Add list"
-        let message = task != nil ? "Please edit a new value" : "Please insert a new value"
+    private func showAlert(productList: ProductList? = nil, completion: (() -> Void)? = nil) {
+        let title = productList != nil ? "Edit list" : "Add list"
+        let message = productList != nil ? "Please edit a new value" : "Please insert a new value"
         
         let alert = AlertController(title: title,
                                     message: message,
                                     preferredStyle: .alert)
         
-        alert.action(productList: task) { newValue in
-            
-            print(newValue)
+        alert.actionForList(productList: productList) { newValue in
+            if let productList = productList, let completion = completion {
+                StorageManager.shared.edit(newValue: newValue, currentList: productList)
+                completion()
+            } else {
+                StorageManager.shared.save(value: newValue)
+                self.tableView.insertRows(at: [IndexPath(row: self.productLists.count - 1,
+                                                         section: 0)],
+                                          with: .automatic)
+            }
         }
         
         present(alert, animated: true)
