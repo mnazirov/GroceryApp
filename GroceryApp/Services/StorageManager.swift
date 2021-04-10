@@ -13,7 +13,7 @@ class StorageManager {
     
     let realm = try! Realm()
     
-    // MARK: - Methods for product list
+    // MARK: - Products lists methods
     func save(value: String) {
         let productList = ProductList()
         productList.name = value
@@ -29,7 +29,15 @@ class StorageManager {
         }
     }
     
-    // MARK: - Methods for products
+    func delete(productList: ProductList) {
+        write {
+            let products = productList.products
+            realm.delete(products)
+            realm.delete(productList)
+        }
+    }
+    
+    // MARK: - Products methods
     func save(productList: ProductList, newProductName: String, newNumberOfItems: String) {
         let product = Product()
         product.name = newProductName
@@ -47,6 +55,13 @@ class StorageManager {
         }
     }
     
+    func delete(product: Product) {
+        write {
+            realm.delete(product)
+        }
+    }
+    
+    // MARK: - Private methods
     private func write(_ completion: () -> Void) {
         do {
             try realm.write {
