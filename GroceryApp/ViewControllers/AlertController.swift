@@ -35,9 +35,13 @@ class AlertController: UIAlertController {
         let saveAction = UIAlertAction(title: doneText,
                                        style: .default) { _ in
             guard let newProductName = self.textFields?.first?.text else { return }
-            guard let newNumberOfItems = self.textFields?.last?.text else { return }
+            guard var newNumberOfItems = self.textFields?.last?.text else { return }
             guard !newProductName.isEmpty else { return }
-            guard !newNumberOfItems.isEmpty else { return }
+            
+            if newNumberOfItems.isEmpty {
+                newNumberOfItems = "1"
+            }
+            
             completion(newProductName, newNumberOfItems)
         }
         

@@ -17,8 +17,15 @@ class ProductsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         title = productList.name
+        
         productsNeedTobuy = productList.products.filter("isComplete = false")
         productsPurchased = productList.products.filter("isComplete = true")
+        
+        let addAction = UIBarButtonItem(barButtonSystemItem: .add,
+                                        target: self,
+                                        action: #selector(addProduct))
+        
+        navigationItem.rightBarButtonItems = [addAction]
     }
 
     // MARK: - Table view data source
@@ -67,9 +74,15 @@ class ProductsTableViewController: UITableViewController {
                 StorageManager.shared.save(productList: self.productList,
                                            newProductName: newProductName,
                                            newNumberOfItems: newNumberOfItems)
+                let rowIndex = IndexPath(row: self.productsNeedTobuy.count - 1, section: 0)
+                self.tableView.insertRows(at: [rowIndex], with: .automatic)
             }
         }
         
         present(alert, animated: true)
+    }
+    
+    @objc private func addProduct() {
+        showAlert()
     }
 }
