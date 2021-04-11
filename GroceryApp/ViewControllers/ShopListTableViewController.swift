@@ -42,6 +42,33 @@ class ShopListTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+            StorageManager.shared.delete(productList: self.productLists[indexPath.row])
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, isDone) in
+            self.showAlert(productList: self.productLists[indexPath.row]) {
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            
+            isDone(true)
+        }
+        
+        let doneAction = UIContextualAction(style: .normal, title: "Done") { (_, _, isDone) in
+            StorageManager.shared.done(productList: self.productLists[indexPath.row])
+            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            isDone(true)
+        }
+        
+        editAction.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        doneAction.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction, doneAction])
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let indexPath = tableView.indexPathForSelectedRow else { return }
         guard let productsVC = segue.destination as? ProductsTableViewController else { return }
