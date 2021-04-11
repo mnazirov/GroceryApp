@@ -16,6 +16,8 @@ class ShopListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         productLists = StorageManager.shared.realm.objects(ProductList.self)
+        
+        navigationItem.leftBarButtonItem = editButtonItem
     }
 
     // MARK: - Table view data source
