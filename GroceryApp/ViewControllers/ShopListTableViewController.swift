@@ -46,12 +46,12 @@ class ShopListTableViewController: UITableViewController {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
             StorageManager.shared.delete(productList: self.productLists[indexPath.row])
-            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic)
         }
         
         let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, isDone) in
             self.showAlert(productList: self.productLists[indexPath.row]) {
-                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+                tableView.reloadRows(at: [indexPath], with: .automatic)
             }
             
             isDone(true)
@@ -59,7 +59,7 @@ class ShopListTableViewController: UITableViewController {
         
         let doneAction = UIContextualAction(style: .normal, title: "Done") { (_, _, isDone) in
             StorageManager.shared.done(productList: self.productLists[indexPath.row])
-            self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            tableView.reloadRows(at: [indexPath], with: .automatic)
             isDone(true)
         }
         
