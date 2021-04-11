@@ -25,7 +25,7 @@ class ProductsTableViewController: UITableViewController {
                                         target: self,
                                         action: #selector(addProduct))
         
-        navigationItem.rightBarButtonItems = [addAction]
+        navigationItem.rightBarButtonItems = [addAction, editButtonItem]
     }
 
     // MARK: - Table view data source
