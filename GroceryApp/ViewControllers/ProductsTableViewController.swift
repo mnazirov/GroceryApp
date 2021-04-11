@@ -89,7 +89,7 @@ class ProductsTableViewController: UITableViewController {
         editAction.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         doneAction.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
         
-        return UISwipeActionsConfiguration(actions: [editAction, deleteAction, doneAction])
+        return UISwipeActionsConfiguration(actions: [doneAction, editAction, deleteAction])
     }
     
     // MARK: - Private Methods
