@@ -55,6 +55,43 @@ class ProductsTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let product = indexPath.section == 0 ? productsNeedTobuy[indexPath.row] : productsPurchased[indexPath.row]
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
+            StorageManager.shared.delete(product: product)
+            self.tableView.deleteRows(at: [indexPath], with: .automatic)
+        }
+        
+        let editAction = UIContextualAction(style: .normal, title: "Edit") { (_, _, isDone) in
+            self.showAlert(product: product) {
+                self.tableView.reloadRows(at: [indexPath], with: .automatic)
+            }
+            
+            isDone(true)
+        }
+        
+        let title = indexPath.section == 0 ? "Done" : "Undone"
+        
+        let doneAction = UIContextualAction(style: .normal, title: title) { (_, _, isDone) in
+            StorageManager.shared.done(product: product)
+            
+            let indexProductsNeedTobuy = IndexPath(row: self.productsNeedTobuy.count - 1, section: 0)
+            let indexProductsPurchased = IndexPath(row: self.productsPurchased.count - 1, section: 1)
+            
+            let oppositeSection = indexPath.section == 0 ? indexProductsPurchased : indexProductsNeedTobuy
+            
+            tableView.moveRow(at: indexPath, to: oppositeSection)
+            isDone(true)
+        }
+        
+        editAction.backgroundColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        doneAction.backgroundColor = #colorLiteral(red: 0.4666666687, green: 0.7647058964, blue: 0.2666666806, alpha: 1)
+        
+        return UISwipeActionsConfiguration(actions: [editAction, deleteAction, doneAction])
+    }
+    
     // MARK: - Private Methods
     private func showAlert(product: Product? = nil, completion: (() -> Void)? = nil) {
         let title = product != nil ? "Edit product" : "Add product"

@@ -67,6 +67,12 @@ class StorageManager {
         }
     }
     
+    func done(product: Product) {
+        write {
+            product.isComplete.toggle()
+        }
+    }
+    
     // MARK: - Private methods
     private func write(_ completion: () -> Void) {
         do {
