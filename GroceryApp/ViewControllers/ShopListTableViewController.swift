@@ -19,6 +19,11 @@ class ShopListTableViewController: UITableViewController {
         
         navigationItem.leftBarButtonItem = editButtonItem
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
 
     // MARK: - Table view data source
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
