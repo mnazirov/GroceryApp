@@ -11,14 +11,14 @@ import RealmSwift
 class ProductsTableViewController: UITableViewController {
     
     var productList: ProductList!
-    var productsNeedTobuy: Results<Product>!
+    var productsNeedToBuy: Results<Product>!
     var productsPurchased: Results<Product>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         title = productList.name
         
-        productsNeedTobuy = productList.products.filter("isComplete = false")
+        productsNeedToBuy = productList.products.filter("isComplete = false")
         productsPurchased = productList.products.filter("isComplete = true")
         
         let addAction = UIBarButtonItem(barButtonSystemItem: .add,
@@ -34,7 +34,7 @@ class ProductsTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        section == 0 ? productsNeedTobuy.count : productsPurchased.count
+        section == 0 ? productsNeedToBuy.count : productsPurchased.count
     }
     
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -43,7 +43,7 @@ class ProductsTableViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
-        let product = indexPath.section == 0 ? productsNeedTobuy[indexPath.row] : productsPurchased[indexPath.row]
+        let product = indexPath.section == 0 ? productsNeedToBuy[indexPath.row] : productsPurchased[indexPath.row]
         
         var content = cell.defaultContentConfiguration()
         
@@ -57,7 +57,7 @@ class ProductsTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let product = indexPath.section == 0 ? productsNeedTobuy[indexPath.row] : productsPurchased[indexPath.row]
+        let product = indexPath.section == 0 ? productsNeedToBuy[indexPath.row] : productsPurchased[indexPath.row]
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (_, _, _) in
             StorageManager.shared.delete(product: product)
@@ -77,7 +77,7 @@ class ProductsTableViewController: UITableViewController {
         let doneAction = UIContextualAction(style: .normal, title: title) { (_, _, isDone) in
             StorageManager.shared.done(product: product)
             
-            let indexProductsNeedTobuy = IndexPath(row: self.productsNeedTobuy.count - 1, section: 0)
+            let indexProductsNeedTobuy = IndexPath(row: self.productsNeedToBuy.count - 1, section: 0)
             let indexProductsPurchased = IndexPath(row: self.productsPurchased.count - 1, section: 1)
             
             let oppositeSection = indexPath.section == 0 ? indexProductsPurchased : indexProductsNeedTobuy
@@ -111,7 +111,7 @@ class ProductsTableViewController: UITableViewController {
                 StorageManager.shared.save(productList: self.productList,
                                            newProductName: newProductName,
                                            newNumberOfItems: newNumberOfItems)
-                let rowIndex = IndexPath(row: self.productsNeedTobuy.count - 1, section: 0)
+                let rowIndex = IndexPath(row: self.productsNeedToBuy.count - 1, section: 0)
                 self.tableView.insertRows(at: [rowIndex], with: .automatic)
             }
         }

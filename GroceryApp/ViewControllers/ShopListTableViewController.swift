@@ -34,10 +34,11 @@ class ShopListTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
         let productList = productLists[indexPath.row]
 
-        var content = cell.defaultContentConfiguration()
-        content.text = productList.name
-        content.secondaryText = "\(productList.products.count)"
-        cell.contentConfiguration = content
+        cell.configuration(productList: productList)
+//        var content = cell.defaultContentConfiguration()
+//        content.text = productList.name
+//        content.secondaryText = "\(productList.products.count)"
+//        cell.contentConfiguration = content
         
         return cell
     }
