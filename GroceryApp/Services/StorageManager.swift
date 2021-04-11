@@ -37,6 +37,12 @@ class StorageManager {
         }
     }
     
+    func done(productList: ProductList) {
+        write {
+            productList.products.setValue(true, forKey: "isComplete")
+        }
+    }
+    
     // MARK: - Products methods
     func save(productList: ProductList, newProductName: String, newNumberOfItems: String) {
         let product = Product()
