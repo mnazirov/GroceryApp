@@ -16,7 +16,7 @@ class ShopListTableViewController: UITableViewController {
         super.viewDidLoad()
         
         productLists = StorageManager.shared.realm.objects(ProductList.self)
-        
+        tableView.rowHeight = 90
         navigationItem.leftBarButtonItem = editButtonItem
     }
     
@@ -31,14 +31,10 @@ class ShopListTableViewController: UITableViewController {
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ListTableViewCell
         let productList = productLists[indexPath.row]
 
         cell.configuration(productList: productList)
-//        var content = cell.defaultContentConfiguration()
-//        content.text = productList.name
-//        content.secondaryText = "\(productList.products.count)"
-//        cell.contentConfiguration = content
         
         return cell
     }
