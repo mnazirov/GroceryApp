@@ -7,7 +7,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Grocery List-->
+        <!--Your lists-->
         <scene sceneID="pZN-nZ-XZC">
             <objects>
                 <tableViewController id="lYd-MP-xgt" customClass="ShopListTableViewController" customModule="GroceryApp" customModuleProvider="target" sceneMemberID="viewController">
@@ -60,7 +60,7 @@
                             <outlet property="delegate" destination="lYd-MP-xgt" id="d9U-BG-C8V"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Grocery List" id="O21-4e-Qnk">
+                    <navigationItem key="navigationItem" title="Your lists" id="O21-4e-Qnk">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="2Ci-Z1-uHj">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
