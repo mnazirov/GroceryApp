@@ -8,4 +8,4 @@ The easiest way to organize your shopping lists and saving data to Realm
 - [ ] In the process of filling...
 
 ## Preview
-![Alt-текст](https://github.com/mnazirov/GroceryApp/blob/25826392fbf315af0040add806f38fbd8f744a23/Source/preview.gif "Орк")
+![Alt-текст](https://github.com/mnazirov/GroceryApp/blob/336040e7e146c1bc6ea540901b1f36608d756b12/Source/preview.gif "Орк")
